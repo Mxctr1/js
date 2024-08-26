@@ -1,0 +1,7 @@
+[
+  "function encodeBytesOnInstall() pure returns (bytes)",
+  "function onTokenURI(uint256 _id) view returns (string uri)",
+  "function setTokenURI(uint256 _id, string _uri)",
+  "event MetadataUpdate(uint256 id)",
+  "error MetadataNoMetadataForTokenId()"
+]
