@@ -88,13 +88,13 @@ function formatContractCall(
     value: string;
     type: string;
     components:
-      | {
-          // biome-ignore lint/suspicious/noExplicitAny: FIXME
-          [x: string]: any;
-          type: string;
-          name?: string;
-        }[]
-      | undefined;
+    | {
+      // biome-ignore lint/suspicious/noExplicitAny: FIXME
+      [x: string]: any;
+      type: string;
+      name?: string;
+    }[]
+    | undefined;
   }[],
 ) {
   const parsedParams = params
@@ -171,14 +171,14 @@ function useSimulateTransaction() {
 Result: ${simulateResult.length ? simulateResult.join(", ") : "Method did not return a result."}
 Transaction data:
 ${Object.keys(populatedTransaction)
-  .map((key) => {
-    let _val = populatedTransaction[key as keyof typeof populatedTransaction];
-    if (key === "value" && !_val) {
-      _val = 0;
-    }
-    return `${key}: ${_val}\n`;
-  })
-  .join("")}`;
+            .map((key) => {
+              let _val = populatedTransaction[key as keyof typeof populatedTransaction];
+              if (key === "value" && !_val) {
+                _val = 0;
+              }
+              return `${key}: ${_val}\n`;
+            })
+            .join("")}`;
       } catch (err) {
         return `--- ❌ Simulation failed ---
 ${(err as Error).message || ""}`;
@@ -254,45 +254,42 @@ export const InteractiveAbiFunction: React.FC<InteractiveAbiFunctionProps> = ({
     }
   }, [abiFunction, form, readFn]);
 
-  const handleContractRead = () =>
-    form.handleSubmit((d) => {
-      const types = abiFunction.inputs.map((o) => o.type);
-      const formatted = formatContractCall(d.params);
-      readFn({ args: formatted, types });
-    })();
+  const handleContractRead = form.handleSubmit((d) => {
+    const types = abiFunction.inputs.map((o) => o.type);
+    const formatted = formatContractCall(d.params);
+    readFn({ args: formatted, types });
+  });
 
-  const handleContractWrite = () =>
-    form.handleSubmit((d) => {
-      if (!abiFunction.name) {
-        return toast.error("Cannot detect function name");
-      }
-      const types = abiFunction.inputs.map((o) => o.type);
-      const formatted = formatContractCall(d.params);
-      const params = parseAbiParams(types, formatted);
-      const transaction = prepareContractCall({
-        contract,
-        method: resolveMethod(abiFunction.name),
-        params,
-        value: d.value ? toWei(d.value) : undefined,
-      });
-      mutate(transaction);
-    })();
+  const handleContractWrite = form.handleSubmit((d) => {
+    if (!abiFunction.name) {
+      return toast.error("Cannot detect function name");
+    }
+    const types = abiFunction.inputs.map((o) => o.type);
+    const formatted = formatContractCall(d.params);
+    const params = parseAbiParams(types, formatted);
+    const transaction = prepareContractCall({
+      contract,
+      method: resolveMethod(abiFunction.name),
+      params,
+      value: d.value ? toWei(d.value) : undefined,
+    });
+    mutate(transaction);
+  });
 
-  const handleContractSilumation = () =>
-    form.handleSubmit((d) => {
-      if (!abiFunction.name) {
-        return toast.error("Cannot detect function name");
-      }
-      const types = abiFunction.inputs.map((o) => o.type);
-      const formatted = formatContractCall(d.params);
-      const params = parseAbiParams(types, formatted);
-      txSimulation.mutate({
-        contract,
-        params,
-        functionName: abiFunction.name,
-        value: d.value ? toWei(d.value) : undefined,
-      });
-    })();
+  const handleContractSilumation = form.handleSubmit((d) => {
+    if (!abiFunction.name) {
+      return toast.error("Cannot detect function name");
+    }
+    const types = abiFunction.inputs.map((o) => o.type);
+    const formatted = formatContractCall(d.params);
+    const params = parseAbiParams(types, formatted);
+    txSimulation.mutate({
+      contract,
+      params,
+      functionName: abiFunction.name,
+      value: d.value ? toWei(d.value) : undefined,
+    });
+  });
 
   return (
     <FormProvider {...form}>
