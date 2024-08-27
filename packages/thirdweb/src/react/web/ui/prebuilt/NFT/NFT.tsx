@@ -84,7 +84,7 @@ function useNFTContext() {
 /**
  * @component
  * The props for the <NFT.Media /> component
- * It is similar to the [`MediaRendererProps`](https://portal.thirdweb.com/references/typescript/v5/MediaRendererProps) 
+ * It is similar to the [`MediaRendererProps`](https://portal.thirdweb.com/references/typescript/v5/MediaRendererProps)
  * (excluding `src`, `poster` and `client`) that you can
  * use to style the NFT.Media
  */
