@@ -1,6 +1,4 @@
 "use client";
-
-import { useEffect } from "react";
 import { baseSepolia } from "thirdweb/chains";
 import {
   useActiveAccount,
@@ -16,14 +14,6 @@ import { StyledConnectButton } from "../styled-connect-button";
 import { Button } from "../ui/button";
 
 export function ConnectSmartAccountPreview() {
-  // force disconnect if not smart wallet already
-  const wallet = useActiveWallet();
-  const { disconnect } = useDisconnect();
-  useEffect(() => {
-    if (wallet && wallet.id !== "smart") {
-      disconnect(wallet);
-    }
-  }, [wallet, disconnect]);
   return (
     <div className="flex flex-col">
       <StyledConnectButton
