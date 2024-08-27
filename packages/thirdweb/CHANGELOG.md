@@ -1,5 +1,19 @@
 # thirdweb
 
+## 5.48.3
+
+### Patch Changes
+
+- [#4264](https://github.com/thirdweb-dev/js/pull/4264) [`b661ce7`](https://github.com/thirdweb-dev/js/commit/b661ce7b2fd58e7ff01faf47cf8fb3bb232841ec) Thanks [@kien-ngo](https://github.com/kien-ngo)! - Add extension for deploying VoteERC20 contract
+
+- [#4291](https://github.com/thirdweb-dev/js/pull/4291) [`f346bb8`](https://github.com/thirdweb-dev/js/commit/f346bb8fca5fd828a96ae9d46e14703050564be2) Thanks [@joaquim-verges](https://github.com/joaquim-verges)! - ZkSync gasPubPerData increase for faster inclusion
+
+- [#4106](https://github.com/thirdweb-dev/js/pull/4106) [`c116597`](https://github.com/thirdweb-dev/js/commit/c1165976410b03754ef65a8f707a4c7fccd3d3a1) Thanks [@joaquim-verges](https://github.com/joaquim-verges)! - Support Entrypoint v0.7 for smart accounts
+
+- [#4294](https://github.com/thirdweb-dev/js/pull/4294) [`09bb251`](https://github.com/thirdweb-dev/js/commit/09bb25165753841f7d144e22f17cca326c91f8f2) Thanks [@ElasticBottle](https://github.com/ElasticBottle)! - fix: ecosystem wallet signing modal should be clickable even when there's a pop up beneath
+
+- [#4286](https://github.com/thirdweb-dev/js/pull/4286) [`dda57ea`](https://github.com/thirdweb-dev/js/commit/dda57eaad32e38dffecb888494fe2441dc8ff265) Thanks [@edwardysun](https://github.com/edwardysun)! - No retries on permanent failures on Pay quotes
+
 ## 5.48.2
 
 ### Patch Changes
