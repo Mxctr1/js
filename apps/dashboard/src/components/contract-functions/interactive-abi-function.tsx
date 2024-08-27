@@ -88,13 +88,13 @@ function formatContractCall(
     value: string;
     type: string;
     components:
-    | {
-      // biome-ignore lint/suspicious/noExplicitAny: FIXME
-      [x: string]: any;
-      type: string;
-      name?: string;
-    }[]
-    | undefined;
+      | {
+          // biome-ignore lint/suspicious/noExplicitAny: FIXME
+          [x: string]: any;
+          type: string;
+          name?: string;
+        }[]
+      | undefined;
   }[],
 ) {
   const parsedParams = params
@@ -171,14 +171,14 @@ function useSimulateTransaction() {
 Result: ${simulateResult.length ? simulateResult.join(", ") : "Method did not return a result."}
 Transaction data:
 ${Object.keys(populatedTransaction)
-            .map((key) => {
-              let _val = populatedTransaction[key as keyof typeof populatedTransaction];
-              if (key === "value" && !_val) {
-                _val = 0;
-              }
-              return `${key}: ${_val}\n`;
-            })
-            .join("")}`;
+  .map((key) => {
+    let _val = populatedTransaction[key as keyof typeof populatedTransaction];
+    if (key === "value" && !_val) {
+      _val = 0;
+    }
+    return `${key}: ${_val}\n`;
+  })
+  .join("")}`;
       } catch (err) {
         return `--- ❌ Simulation failed ---
 ${(err as Error).message || ""}`;
